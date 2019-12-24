@@ -4,38 +4,48 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:gravity="center"
+    android:orientation="vertical"
     android:padding="20dp"
     tools:context=".LoginActivity">
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/softwaricalogo"/>
+        android:src="@drawable/softwaricalogo" />
 
-
-    <EditText
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/etUsername"
-        android:hint="Username"
-        style="@style/loginEdit"
-        />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:errorEnabled="true">
 
-    <EditText
+        <com.google.android.material.textfield.TextInputEditText
+            style="@style/loginEdit"
+            android:hint="Username" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/etPassword"
-        android:hint="Password"
-        style="@style/loginEdit"
-        />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:errorEnabled="true">
+
+        <com.google.android.material.textfield.TextInputEditText
+            style="@style/loginEdit"
+            android:hint="Password" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
 
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="#FFFF"
-        android:textStyle="bold"
-        android:textSize="20sp"
+        android:background="@drawable/mybutton"
         android:text="LOGIN"
-        android:background="@drawable/mybutton"/>
+        android:textColor="#FFFF"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
 </LinearLayout>
