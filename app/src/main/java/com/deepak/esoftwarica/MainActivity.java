@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.deepak.esoftwarica.adapter.Students;
+import com.deepak.esoftwarica.fragments.HomeFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
@@ -23,7 +24,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
-        bottomNavigationView.setOnNavigationItemReselectedListener(navListener);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(navListener);
 
         if (studentsList.isEmpty()){
             studentsList.add(new Students("Deepak Maharjan","male", "Sanagaun, Lalitpur", 18));
@@ -33,25 +35,25 @@ public class MainActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new HomeFragment()).commit();
     }
 
-    private BottomNavigationView.OnNavigationItemReselectedListener navListener = new BottomNavigationView.OnNavigationItemReselectedListener() {
-        @Override
-        public void onNavigationItemReselected(@NonNull MenuItem menuItem) {
-            Fragment selectedFragment = null;
+ private BottomNavigationView.OnNavigationItemSelectedListener navListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
+     @Override
+     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+         Fragment selectedFragment = null;
 
-            switch (menuItem.getItemId()){
-                case R.id.navHome:
-                    selectedFragment = new HomeFragment();
-                    break;
-                case R.id.navAddStudent:
-                    selectedFragment = new HomeFragment();
-                    break;
-                case R.id.navAboutUs:
-                    selectedFragment = new HomeFragment();
-                    break;
-            }
+         switch (menuItem.getItemId()){
+             case R.id.navHome:
+                 selectedFragment = new HomeFragment();
+                 break;
+//             case R.id.navAddStudent:
+//                 selectedFragment = new AddFragment();
+//                 break;
+//             case R.id.navAboutUs:
+//                 selectedFragment = new AboutFragment();
+//                 break;
+         }
 
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
-            return true;
-        }
-    };
+         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,selectedFragment).commit();
+         return true;
+     }
+ };
 }
