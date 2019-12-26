@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.deepak.esoftwarica.adapter.Students;
+import com.deepak.esoftwarica.fragments.AboutFragment;
 import com.deepak.esoftwarica.fragments.AddFragment;
 import com.deepak.esoftwarica.fragments.HomeFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -48,9 +49,9 @@ public class MainActivity extends AppCompatActivity {
              case R.id.navAddStudent:
                  selectedFragment = new AddFragment();
                  break;
-//             case R.id.navAboutUs:
-//                 selectedFragment = new AboutFragment();
-//                 break;
+             case R.id.navAboutUs:
+                 selectedFragment = new AboutFragment();
+                 break;
          }
 
          getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,selectedFragment).commit();
